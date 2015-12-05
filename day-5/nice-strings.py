@@ -10,7 +10,7 @@ It does not contain the strings ab, cd, pq, or xy, even if they are part of one 
 """
 
 def is_nice_string(string_in_question):
-    bad_couples = re.match( r'.*ab|cd|pq|xy.*', string_in_question)
+    bad_couples = re.match( r'.*(ab|cd|pq|xy).*', string_in_question)
     if bad_couples:
         return False
 
@@ -19,7 +19,7 @@ def is_nice_string(string_in_question):
         return False
 
     double_letter = re.match( r'.*([a-z])\1.*', string_in_question)
-    if double_letter is not None:
+    if not double_letter:
         return False
 
     return True
